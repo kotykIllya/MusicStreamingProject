@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>UserPage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+<div class="container text-center">
+        <h1>
+            <span>Welcome</span>
+            <span th:text="${user.username}"></span>
+        </h1>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <h2 class="navbar-brand" href="#">Navbar</h2>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li>
+                        <a class="nav-link active" aria-current="page" th:href="@{/index}"><button type="button" class="btn btn-outline-secondary">Home</button></a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" th:href="@{/searchPage}"><button type="button" class="btn btn-outline-warning">Search</button></a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" th:href="@{/createPlaylistPage}"><button type="button" class="btn btn-outline-warning">Create playlist</button></a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" th:href="@{/logout}"><button type="button" class="btn btn-outline-info">Log Out</button></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+        <h2 class="mt-4">Library</h2>
+        <div class="grid text-center mt-3">
+            <a th:href="@{/track/all}"><button type="button" class="btn btn-warning btn-lg">Tracks</button></a>
+            <a th:href="@{/album/all}"><button type="button" class="btn btn-warning btn-lg">Albums</button></a>
+            <a th:href="@{/genre/all}"><button type="button" class="btn btn-warning btn-lg">Genres</button></a>
+            <a th:href="@{/artist/all}"><button type="button" class="btn btn-warning btn-lg">Artists</button></a>
+            <a th:href="@{/playlist/allUserPlaylists/{id} (id=${user.id})}"><button type="button" class="btn btn-warning btn-lg">My playlists</button></a>
+        </div>
+</div>
+</body>
+</html>
